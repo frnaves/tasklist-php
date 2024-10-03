@@ -13,11 +13,11 @@ body{
 
 .container {
     background: #fff;
-    max-width: 450px;
+    max-width: 720px;
     margin-top: 5%;
     margin-left: auto;
     margin-right: auto;
-    padding: 12px;
+    padding: 23px;
 
 }
 
@@ -45,5 +45,115 @@ body{
     font-weight: bold;
     margin-top: 4px;
     margin-bottom: 4px;
-
 }
+
+.form input{
+    height: 36px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 12px;
+    border: 1px solid #999;
+    border-radius: 4px;
+}
+
+.form input:focus{
+    background: #f0f0f5;
+}
+
+.form button {
+    background: #AB47BC;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    color: #FFF;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    transition: background 0.7s;
+}
+
+
+.form button:hover{
+    background: #ce93d8;
+}
+
+.separator {
+    background: #DDD;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.list-tasks{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.list-tasks ul{
+    list-style: none;    
+}
+
+.list-tasks ul li {
+    background: #4db6ac;
+    height: 54px;
+    border-radius: 4px;
+    color: #FFF;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: background 0.7s;
+}
+
+.list-tasks ul li:hover {
+    background-color: #80cbc4;
+}
+
+.limpar button {
+    background: #ef5350;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    padding: 0 12px;
+    color: #FFF;
+
+    transition: background 0.7s;     
+}
+
+.limpar button {
+    
+}
+
+
+.list-tasks button {
+    background: #ef5350;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    padding: 0 12px;
+    color: #FFF;
+
+    transition: background 0.7s;     
+}
+
+
+.btn-clear:hover {
+    background: #ef9a9a;
+}
+
+.footer {
+    background: #f0f0f5;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.footer p{
+    color: #999;
+    font-size: 12px;
+    text-align: center;
+}
+
+
+
