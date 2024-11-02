@@ -5,27 +5,10 @@ if (!isset($_SESSION['tasks'])){
     $_SESSION['tasks'] = array();
 }
 
-if (isset($_GET['task_name'])){
-    if ($_GET['task_name'] != ""){
-        array_push($_SESSION['tasks'], $_GET['task_name']);
-        unset($_GET['task_name']);
-    }
-    else {
-        $_SESSION['message'] = "O campo está vazio, preencha algo jão";
-    }
-
-}
-
 if (isset($_GET['clear'])){
     unset($_SESSION['tasks']);
     unset($_GET['clear']);
 }
-
-if (isset($_GET['key'])){
-    array_splice($_SESSION['tasks'], $_GET['key'], 1);
-    unset($_GET['key']);
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -46,9 +29,17 @@ if (isset($_GET['key'])){
         </div>
 
         <div class="form">
-            <form action="" method="get">
+            <form action="task.php" method="post">
+                <input type="hidden" name="insert" value="insert">
                 <label for="task_name">Tarefa</label>
+
                 <input type="text" name="task_name" placeholder="Nome da Tarefa">
+                <label for="task_description">Descrição:</label>
+
+                <input type="text" name="task_description" placeholder="Descrição da Tarefa">
+                <label for="task_date">Data</label>
+
+                <input type="date" name="task_date">
                 <button type="submit">Cadastrar</button>
             </form>
             
@@ -70,12 +61,12 @@ if (isset($_GET['key'])){
 
                     foreach($_SESSION['tasks'] as $key => $task){
                         echo "<li>
-                            <span>$task</span>
-                            <button type='button' class='btn-clear' onclick='deletar$key()'>Remover<span>
+                            <span>  " . $task['task_name'] . " </span>
+                            <button type='button' class='btn-clear' onclick='deletar$key()'>Remover</button>
                             <script>
                                 function deletar$key() {
                                     if (confirm('Confirmar remoção')){
-                                        window.location = 'http://localhost/tasklist-php/?key=$key';
+                                        window.location = 'http://localhost/tasklist-php/task.php?key=$key';
                                     }
                                     return false;
                                 }   
@@ -83,28 +74,24 @@ if (isset($_GET['key'])){
                             </script>
                             
                             </li>";
-                    }
+                    }                    
 
                     echo "</ul>";
                 }
             ?>    
         </div>
-
         <div class="limpar">
-
             <form action="" method="get">
                 <input type="hidden" name="clear" value="clear">
                 <button type="submit" class="btn-clear">Limpar</button>
             </form>
-
-
         </div>
 
 
         <div class="footer">
-            <p>Desenvolvido por FRNaves através do curso <a href="#"></a>Link do Curso</p>
-
+            <p>Desenvolvido por FRNaves através do curso <a href="https://www.youtube.com/watch?v=dJ49I-QYYUk"><strong>Gerenciador de Tarefas - Monolito PHP</strong></a></p>
         </div>
+
     </div>
 
     
